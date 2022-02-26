@@ -1,5 +1,6 @@
 import React from "react";
+import { DrawRectRegion } from "./DrawRectRegion";
 
 export const App = () => {
-  return <div>Hello world</div>;
+  return <DrawRectRegion />;
 };
