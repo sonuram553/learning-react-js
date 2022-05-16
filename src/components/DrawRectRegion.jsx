@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 
-export const DrawRectRegion = () => {
+export const DrawRectRegion = ({ children, containerStyle }) => {
   const [isMouseDown, setIsMouseDown] = useState(false);
   const [fixedPoint, setFixedPoint] = useState({ x: 0, y: 0 });
   const [isPointerStartedMoving, setIsPointerStartedMoving] = useState(false);
@@ -11,13 +11,6 @@ export const DrawRectRegion = () => {
     left: 0,
   });
   const containerRef = useRef(null);
-  const containerStyle = {
-    border: "1px solid",
-    width: "60%",
-    margin: "auto",
-    minHeight: "400px",
-    position: "relative",
-  };
   const rectangularRegionStyle = {
     border: "1px solid orange",
     top: `${position.top}px`,
@@ -86,6 +79,7 @@ export const DrawRectRegion = () => {
         setIsMouseDown(false);
       }}
     >
+      {children}
       {isPointerStartedMoving && <div style={rectangularRegionStyle}></div>}
     </div>
   );
